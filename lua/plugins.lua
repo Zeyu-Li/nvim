@@ -46,4 +46,7 @@ return require('packer').startup(function(use)
   -- end of nerdtree stuff
   use 'ctrlpvim/ctrlp.vim'
   use 'airblade/vim-gitgutter'
+  -- headers
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/nvim-treesitter-context'
 end)
