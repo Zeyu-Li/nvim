@@ -11,14 +11,39 @@
 
 
 -----------------------
+local g = vim.g
 
--- Run `:PackerSync`
+-- coc stuff
+g.coc_global_extensions = {
+  'coc-snippets',
+  'coc-pairs',
+  'coc-tsserver',
+  'coc-eslint', 
+  'coc-prettier',
+  'coc-json',
+}
 
+-- NERDTREE
+g.NERDTreeIgnore = {
+  '^node_modules',
+}
+g.ctrlp_user_command = {
+	'.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard',
+}
+
+-- Run `:PackerSync` to init
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'Mofiqul/vscode.nvim'
-
-
+  use {'neoclide/coc.nvim', branch = 'release'}
+  use 'scrooloose/nerdcommenter'
+  -- nerdtree stuff
+  use 'scrooloose/nerdtree'
+  use 'Xuyuanp/nerdtree-git-plugin'
+  use 'tiagofumo/vim-nerdtree-syntax-highlight'
+  use 'ryanoasis/vim-devicons'
+  -- end of nerdtree stuff
+  use 'ctrlpvim/ctrlp.vim'
+  use 'airblade/vim-gitgutter'
 end)
-
